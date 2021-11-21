@@ -1,0 +1,2 @@
+# vallisbot
+eruzbackend.backoffice.uz
