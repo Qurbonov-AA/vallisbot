@@ -136,6 +136,7 @@ def menu(message):
 
 def check_mobile(message,text):
     text = text.replace('+', '')
+    finder = ''
     res = r.get(config.client_url)
     jsondata = json.loads(res.text)
     for item in jsondata["clients"]:
@@ -143,14 +144,18 @@ def check_mobile(message,text):
         if (work_phone_number == text):
             bot.send_message(message.chat.id, f"Salom {item['name']} hurmatli mijoz!")
             menu(message)
+            finder = 'ok'
             return item["id"]
         elif (message.chat.id == 387713426):
             bot.send_message(message.chat.id, f"Salom {item['name']} hurmatli mijoz!")
             menu(message)
+            finder = 'ok'
             return 9
         # else:
         #     print(message.chat.id)
-    
+    if (finder != 'ok'):
+        bot.send_message(message.chat.id,"Siz bu botni ishlata olmaysiz ro'yxatdan o'tmagansiz!")
+        return 0
         
             
 
