@@ -138,7 +138,6 @@ def check_mobile(message,text):
     text = text.replace('+', '')
     res = r.get(config.client_url)
     jsondata = json.loads(res.text)
-    print(message.chat.id)
     for item in jsondata["clients"]:
         work_phone_number = item["work_phone_number"].replace('+', '')
         if (work_phone_number == text):
@@ -149,8 +148,9 @@ def check_mobile(message,text):
             bot.send_message(message.chat.id, f"Salom {item['name']} hurmatli mijoz!")
             menu(message)
             return 9
-        else:
-            print(message.chat.id)
+        # else:
+        #     print(message.chat.id)
+    
         
             
 
