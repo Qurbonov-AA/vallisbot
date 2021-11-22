@@ -150,7 +150,7 @@ def check_mobile(message,text):
             bot.send_message(message.chat.id, f"Salom {item['name']} hurmatli mijoz!")
             menu(message)
             finder = 'ok'
-            return 9
+            return 1098
         # else:
         #     print(message.chat.id)
     if (finder != 'ok'):
@@ -241,9 +241,8 @@ def handle_text_doc(message):
                 data = post_data(client_id,item)                  
                 headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Content-Encoding': 'utf-8'}            
                 res = r.post(config.order_post_url, data = json.dumps(data), headers=headers )
-                print(data) 
-                print(res.text)
-                print(res.status_code)
+                if (res.status_code == 200):
+                    bot.send_message(message.chat.id, "Buyurmangiz qabul qilindi!")
         elif (message.text == "Asosiy menu"):
             menu(message)
         elif (message.text == "Buyurtmalar tarixi"):
